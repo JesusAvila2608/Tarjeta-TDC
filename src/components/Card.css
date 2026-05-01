@@ -1,0 +1,261 @@
+.card-area {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, #1e3a8a, #020617);
+}
+
+.flip-card {
+  width: 430px;
+  height: 270px;
+  perspective: 1000px;
+  color: white;
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 28px;
+  border-radius: 22px;
+  backface-visibility: hidden;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Colores por tipo */
+.estandar {
+  background: linear-gradient(135deg, #991b1b, #dc2626, #7f1d1d);
+}
+
+.gold {
+  background: linear-gradient(135deg, #facc15, #d97706, #92400e);
+  color: #111827;
+}
+
+.platino {
+  background: linear-gradient(135deg, #e5e7eb, #ffffff, #d97706);
+  color: #111827;
+}
+
+/* Frente */
+.bank-name {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-size: 14px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.logo-card {
+  position: absolute;
+  top: 58px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.chip {
+  position: absolute;
+  top: 70px;
+  left: 32px;
+  width: 55px;
+  height: 40px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #fff7ad, #f59e0b);
+}
+
+.card-number {
+  position: absolute;
+  top: 135px;
+  left: 32px;
+  font-size: 22px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.card-label {
+  position: absolute;
+  bottom: 62px;
+  left: 32px;
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.card-holder {
+  position: absolute;
+  bottom: 36px;
+  left: 32px;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.card-balance-label {
+  position: absolute;
+  bottom: 62px;
+  right: 32px;
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.card-balance {
+  position: absolute;
+  bottom: 36px;
+  right: 32px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card-type {
+  position: absolute;
+  bottom: 14px;
+  right: 32px;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Reverso */
+.black-strip {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 100%;
+  height: 55px;
+  background: #111;
+}
+
+.signature-strip {
+  position: absolute;
+  top: 125px;
+  left: 32px;
+  width: 260px;
+  height: 38px;
+  background: white;
+  border-radius: 5px;
+}
+
+.security-code {
+  position: absolute;
+  top: 125px;
+  right: 32px;
+  width: 70px;
+  height: 38px;
+  background: white;
+  color: black;
+  border-radius: 5px;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+}
+
+.back-text {
+  position: absolute;
+  bottom: 30px;
+  left: 32px;
+  right: 32px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* Tarjetas del home: sin giro para evitar bugs */
+.hero-cards .card-area {
+  width: 100%;
+  background: transparent;
+}
+
+.hero-cards .flip-card {
+  width: 350px;
+  height: 220px;
+  pointer-events: none;
+}
+
+.hero-cards .flip-card-inner {
+  transform: none !important;
+}
+
+.hero-cards .flip-card-back {
+  display: none;
+}
+
+.hero-cards .flip-card-front {
+  padding: 22px;
+}
+
+.hero-cards .bank-name {
+  top: 20px;
+  right: 24px;
+  font-size: 13px;
+}
+
+.hero-cards .logo-card {
+  top: 52px;
+  right: 25px;
+  width: 40px;
+  height: 40px;
+}
+
+.hero-cards .chip {
+  top: 58px;
+  left: 26px;
+  width: 50px;
+  height: 36px;
+}
+
+.hero-cards .card-number {
+  top: 116px;
+  left: 26px;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+}
+
+.hero-cards .card-label {
+  bottom: 44px;
+  left: 26px;
+  font-size: 9px;
+}
+
+.hero-cards .card-holder {
+  bottom: 25px;
+  left: 26px;
+  font-size: 12px;
+}
+
+.hero-cards .card-balance-label {
+  bottom: 44px;
+  right: 26px;
+  font-size: 9px;
+}
+
+.hero-cards .card-balance {
+  bottom: 25px;
+  right: 26px;
+  font-size: 13px;
+}
+
+.hero-cards .card-type {
+  bottom: 8px;
+  right: 26px;
+  font-size: 11px;
+}

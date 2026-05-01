@@ -1,3 +1,5 @@
+import "./Formulario.css";
+
 function Formulario({
   datos,
   actualizarDato,

@@ -1,4 +1,12 @@
-function Card({ nombre, apellido, monto, tipo = "Estandar" }) {
+import "./Card.css";
+
+function Card({
+  nombre,
+  apellido,
+  monto,
+  tipo = "Estandar",
+  numero = "9759 2484 5269 6576",
+}) {
   const nombreCompleto = `${nombre || "NOMBRE"} ${apellido || "APELLIDO"}`;
 
   return (
@@ -7,13 +15,12 @@ function Card({ nombre, apellido, monto, tipo = "Estandar" }) {
         <div className="flip-card-inner">
           <div className={`flip-card-front ${tipo.toLowerCase()}`}>
             <p className="bank-name">BANCO X</p>
+
             <div className="chip"></div>
 
-            <div className="card-logo">
-                <img src="/logo.png" alt="Logo banco" className="logo-card" />
-            </div>
+            <img src="/logo.png" alt="Logo banco" className="logo-card" />
 
-            <p className="card-number">9759 2484 5269 6576</p>
+            <p className="card-number">{numero}</p>
 
             <p className="card-label">TITULAR</p>
             <p className="card-holder">{nombreCompleto}</p>

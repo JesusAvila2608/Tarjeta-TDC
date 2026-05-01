@@ -1,3 +1,5 @@
+import "./Modal.css";
+
 function Modal({ cerrar, autorizar, declinar }) {
   return (
     <div className="modal">
