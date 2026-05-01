@@ -1,0 +1,188 @@
+function Formulario({
+  datos,
+  actualizarDato,
+  monto,
+  actualizarMonto,
+  tipo,
+  cambiarTipo,
+  setMostrarModal,
+  autorizado,
+}) 
+
+  {
+
+  const manejarTelefono = (valor) => {
+    if (/^\d*$/.test(valor)) {
+      actualizarDato("telefono", valor);
+    }
+  };
+
+  const validarEmail = (correo) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
+  };
+
+  const enviarSolicitud = () => {
+    if (
+      !datos.nombre ||
+      !datos.apellido ||
+      !validarEmail(datos.email) ||
+      !datos.curp ||
+      !datos.rfc ||
+      datos.telefono.length !== 10 ||
+      !datos.genero ||
+      !autorizado
+    ) {
+      alert("Completa todos los campos correctamente antes de enviar.");
+      return;
+    }
+
+    alert("Solicitud enviada correctamente.");
+  };
+
+  return (
+    <div className="formulario">
+      <div className="formulario-contenido">
+        <h2>Solicitud de Tarjeta</h2>
+
+        <input
+          type="text"
+          placeholder="Nombre"
+          value={datos.nombre}
+          onChange={(e) => actualizarDato("nombre", e.target.value)}
+        />
+
+        <input
+          type="text"
+          placeholder="Apellido"
+          value={datos.apellido}
+          onChange={(e) => actualizarDato("apellido", e.target.value)}
+        />
+
+        <input
+          type="email"
+          placeholder="Correo electrónico"
+          value={datos.email}
+          onChange={(e) => actualizarDato("email", e.target.value)}
+          className={!validarEmail(datos.email) && datos.email ? "error" : ""}
+        />
+
+        {!validarEmail(datos.email) && datos.email && (
+          <p className="texto-error">
+            Ingresa un correo válido (ejemplo: correo@gmail.com)
+          </p>
+        )}
+
+        <input
+          type="text"
+          placeholder="CURP"
+          maxLength="18"
+          value={datos.curp}
+          onChange={(e) => actualizarDato("curp", e.target.value.toUpperCase())}
+        />
+
+        <input
+          type="text"
+          placeholder="RFC"
+          maxLength="13"
+          value={datos.rfc}
+          onChange={(e) => actualizarDato("rfc", e.target.value.toUpperCase())}
+        />
+
+        <h4>Tipo de tarjeta</h4>
+
+        <div className="tipo-tarjeta">
+          <button onClick={() => cambiarTipo("Estandar")}>Estándar</button>
+          <button onClick={() => cambiarTipo("Gold")}>Gold</button>
+          <button onClick={() => cambiarTipo("Platino")}>Platino</button>
+        </div>
+
+        {tipo !== "Platino" ? (
+          <>
+            <h4>Monto de crédito</h4>
+
+            <input
+              type="range"
+              min={tipo === "Estandar" ? "500" : "25000"}
+              max={tipo === "Estandar" ? "25000" : "200000"}
+              value={monto}
+              onChange={(e) => actualizarMonto(Number(e.target.value))}
+            />
+
+            <p>${monto.toLocaleString("es-MX")}</p>
+          </>
+        ) : (
+          <p className="sin-limite">Tarjeta Platino: SIN LIMITE</p>
+        )}
+
+        <h4>Teléfono</h4>
+
+        <input
+          type="text"
+          placeholder="Número de teléfono a 10 dígitos"
+          value={datos.telefono}
+          maxLength="10"
+          onChange={(e) => manejarTelefono(e.target.value)}
+          className={datos.telefono.length !== 10 ? "error" : ""}
+        />
+
+        {datos.telefono.length !== 10 && (
+          <p className="texto-error">
+            El teléfono debe contener exactamente 10 números.
+          </p>
+        )}
+
+        <h4>Género</h4>
+
+        <div className={`genero ${datos.genero}`}>
+          <label>
+            <input
+              type="radio"
+              name="genero"
+              checked={datos.genero === "hombre"}
+              onChange={() => actualizarDato("genero", "hombre")}
+            />
+            Hombre
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="genero"
+              checked={datos.genero === "mujer"}
+              onChange={() => actualizarDato("genero", "mujer")}
+            />
+            Mujer
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="genero"
+              checked={datos.genero === "otro"}
+              onChange={() => actualizarDato("genero", "otro")}
+            />
+            Otro / Prefiero no contestar
+          </label>
+        </div>
+
+        <div className="checkbox">
+          <input
+            type="checkbox"
+            checked={autorizado}
+            onChange={() => setMostrarModal(true)}
+            readOnly
+          />
+          <label>
+            Acepto que el banco X pueda revisar mi historial crediticio
+          </label>
+        </div>
+
+        <button className="btn-enviar" onClick={enviarSolicitud}>
+          Enviar solicitud
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default Formulario;
