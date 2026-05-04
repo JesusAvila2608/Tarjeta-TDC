@@ -9,9 +9,8 @@ function Formulario({
   cambiarTipo,
   setMostrarModal,
   autorizado,
-}) 
-
-  {
+  onEnviarSolicitud,
+}) {
 
   const manejarTelefono = (valor) => {
     if (/^\d*$/.test(valor)) {
@@ -31,14 +30,18 @@ function Formulario({
       !datos.curp ||
       !datos.rfc ||
       datos.telefono.length !== 10 ||
-      !datos.genero ||
-      !autorizado
+      !datos.genero
     ) {
       alert("Completa todos los campos correctamente antes de enviar.");
       return;
     }
 
-    alert("Solicitud enviada correctamente.");
+    if (!autorizado) {
+      setMostrarModal(true);
+      return;
+    }
+
+    onEnviarSolicitud();
   };
 
   return (
@@ -124,10 +127,10 @@ function Formulario({
           value={datos.telefono}
           maxLength="10"
           onChange={(e) => manejarTelefono(e.target.value)}
-          className={datos.telefono.length !== 10 ? "error" : ""}
+          className={datos.telefono && datos.telefono.length !== 10 ? "error" : ""}
         />
 
-        {datos.telefono.length !== 10 && (
+        {datos.telefono && datos.telefono.length !== 10 && (
           <p className="texto-error">
             El teléfono debe contener exactamente 10 números.
           </p>
@@ -175,7 +178,7 @@ function Formulario({
             readOnly
           />
           <label>
-            Acepto que el banco X pueda revisar mi historial crediticio
+            Acepto que Banco Aureum pueda revisar mi historial crediticio
           </label>
         </div>
 

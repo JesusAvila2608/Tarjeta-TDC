@@ -6,6 +6,7 @@ function Card({
   monto,
   tipo = "Estandar",
   numero = "9759 2484 5269 6576",
+  banco = "Banco Aureum",
 }) {
   const nombreCompleto = `${nombre || "NOMBRE"} ${apellido || "APELLIDO"}`;
 
@@ -14,7 +15,7 @@ function Card({
       <div className="flip-card">
         <div className="flip-card-inner">
           <div className={`flip-card-front ${tipo.toLowerCase()}`}>
-            <p className="bank-name">BANCO X</p>
+            <p className="bank-name">{banco}</p>
 
             <div className="chip"></div>
 

@@ -7,7 +7,7 @@ function Modal({ cerrar, autorizar, declinar }) {
         <h2>Autorización de historial crediticio</h2>
 
         <p>
-          Al autorizar esta revisión, permites que Banco X consulte tu historial
+          Al autorizar esta revisión, permites que Banco Aureum consulte tu historial
           crediticio con la finalidad de evaluar tu solicitud de tarjeta de
           crédito. Esta información será utilizada únicamente para determinar la
           viabilidad del trámite.

@@ -4,9 +4,11 @@ import { useState } from "react";
 import Card from "./components/Card";
 import Formulario from "./components/Formulario";
 import Modal from "./components/Modal";
+import LoadingScreen from "./components/LoadingScreen";
+import ResultScreen from "./components/ResultScreen";
 
 function App() {
-  const [datos, setDatos] = useState({
+  const initialDatos = {
     nombre: "",
     apellido: "",
     email: "",
@@ -14,13 +16,17 @@ function App() {
     rfc: "",
     telefono: "",
     genero: "",
-  });
+  };
+
+  const [datos, setDatos] = useState(initialDatos);
 
   const [monto, setMonto] = useState(500);
   const [tipo, setTipo] = useState("Estandar");
   const [mostrarModal, setMostrarModal] = useState(false);
   const [autorizado, setAutorizado] = useState(false);
   const [mostrarRegistro, setMostrarRegistro] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [solicitudEnviada, setSolicitudEnviada] = useState(false);
 
   const actualizarDato = (campo, valor) => {
     setDatos({
@@ -51,6 +57,25 @@ function App() {
     }
   };
 
+  const handleEnviarSolicitud = () => {
+    setIsLoading(true);
+
+    setTimeout(() => {
+      setIsLoading(false);
+      setSolicitudEnviada(true);
+    }, 2200);
+  };
+
+  const handleNuevaSolicitud = () => {
+    setDatos(initialDatos);
+    setMonto(500);
+    setTipo("Estandar");
+    setAutorizado(false);
+    setMostrarRegistro(false);
+    setSolicitudEnviada(false);
+    setIsLoading(false);
+  };
+
   return (
     <>
       {!mostrarRegistro ? (
@@ -61,7 +86,7 @@ function App() {
             </h1>
 
             <p>
-              Banco X te ofrece tres opciones de tarjeta: Estándar, Gold y
+              Banco Aureum te ofrece tres opciones de tarjeta: Estándar, Gold y
               Platino. Inicia tu registro y solicita la que mejor se adapte a
               tus necesidades.
             </p>
@@ -73,6 +98,7 @@ function App() {
 
           <div className="hero-preview hero-cards">
 <Card
+  banco="Banco Aureum"
   nombre="Cliente"
   apellido="Demo"
   monto={25000}
@@ -81,6 +107,7 @@ function App() {
 />
 
 <Card
+  banco="Banco Aureum"
   nombre="Cliente"
   apellido="Demo"
   monto={200000}
@@ -89,6 +116,7 @@ function App() {
 />
 
 <Card
+  banco="Banco Aureum"
   nombre="Cliente"
   apellido="Demo"
   monto="SIN LIMITE"
@@ -97,11 +125,21 @@ function App() {
 />
           </div>
         </section>
+      ) : isLoading ? (
+        <LoadingScreen />
+      ) : solicitudEnviada ? (
+        <ResultScreen
+          datos={datos}
+          tipo={tipo}
+          monto={tipo === "Platino" ? "SIN LIMITE" : monto}
+          reiniciar={handleNuevaSolicitud}
+        />
       ) : (
         <div className="container">
           <Card
             nombre={datos.nombre}
             apellido={datos.apellido}
+            banco="Banco Aureum"
             monto={tipo === "Platino" ? "SIN LIMITE" : monto}
             tipo={tipo}
           />
@@ -115,6 +153,7 @@ function App() {
             cambiarTipo={cambiarTipo}
             setMostrarModal={setMostrarModal}
             autorizado={autorizado}
+            onEnviarSolicitud={handleEnviarSolicitud}
           />
 
           {mostrarModal && (

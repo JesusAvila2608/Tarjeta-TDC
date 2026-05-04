@@ -2,7 +2,8 @@
   width: 50%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 30px;
   background: radial-gradient(circle, #1e3a8a, #020617);
 }
 
@@ -56,22 +57,52 @@
   color: #111827;
 }
 
+.estandar {
+  background: linear-gradient(135deg, #991b1b, #dc2626, #7f1d1d);
+  color: #f8fafc;
+}
+
+.gold .bank-name,
+.platino .bank-name {
+  color: #111827;
+}
+
+.gold .card-label,
+.gold .card-holder,
+.gold .card-balance-label,
+.gold .card-balance,
+.gold .card-type,
+.platino .card-label,
+.platino .card-holder,
+.platino .card-balance-label,
+.platino .card-balance,
+.platino .card-type {
+  color: #111827;
+}
+
 /* Frente */
 .bank-name {
   position: absolute;
-  top: 24px;
-  right: 28px;
-  font-size: 14px;
-  letter-spacing: 3px;
-  font-weight: bold;
+  top: 18px;
+  left: 24px;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #f8fafc;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .logo-card {
   position: absolute;
-  top: 58px;
-  right: 30px;
-  width: 45px;
-  height: 45px;
+  top: 28px;
+  right: 28px;
+  width: 72px;
+  height: auto;
+  max-height: 72px;
   object-fit: contain;
 }
 
@@ -87,7 +118,7 @@
 
 .card-number {
   position: absolute;
-  top: 135px;
+  top: 128px;
   left: 32px;
   font-size: 22px;
   letter-spacing: 2px;
@@ -96,7 +127,7 @@
 
 .card-label {
   position: absolute;
-  bottom: 62px;
+  bottom: 72px;
   left: 32px;
   font-size: 10px;
   opacity: 0.8;
@@ -104,7 +135,7 @@
 
 .card-holder {
   position: absolute;
-  bottom: 36px;
+  bottom: 44px;
   left: 32px;
   font-size: 15px;
   font-weight: bold;
@@ -182,6 +213,8 @@
 /* Tarjetas del home: sin giro para evitar bugs */
 .hero-cards .card-area {
   width: 100%;
+  align-items: center;
+  padding-top: 0;
   background: transparent;
 }
 
@@ -207,13 +240,15 @@
   top: 20px;
   right: 24px;
   font-size: 13px;
+  color: black; 
 }
 
 .hero-cards .logo-card {
-  top: 52px;
+  top: 40px;
   right: 25px;
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: auto;
+  max-height: 48px;
 }
 
 .hero-cards .chip {
