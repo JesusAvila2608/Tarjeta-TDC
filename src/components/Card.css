@@ -1,9 +1,9 @@
 .card-area {
-  width: 50%;
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding-top: 30px;
+  align-items: center;
+  padding: 30px;
   background: radial-gradient(circle, #1e3a8a, #020617);
 }
 
@@ -64,6 +64,16 @@
 
 .gold .bank-name,
 .platino .bank-name {
+  color: #111827;
+}
+
+.gold .card-number,
+.platino .card-number {
+  color: #111827;
+}
+
+.gold .back-text,
+.platino .back-text {
   color: #111827;
 }
 
