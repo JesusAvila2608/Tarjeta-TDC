@@ -22,13 +22,37 @@ function Formulario({
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
   };
 
+  const validarCurpFormato = (curp) => {
+    return /^[A-Z][AEIOU][A-Z]{2}\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])[HM](AS|BC|BS|CC|CS|CH|CL|CM|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d]\d$/.test(curp);
+  };
+
+  const validarRFCFormato = (rfc) => {
+    return /^[A-ZÑ&]{3,4}\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])[A-Z\d]{3}$/.test(rfc);
+  };
+
+  const manejarCurp = (valor) => {
+    const nuevoValor = valor.toUpperCase();
+
+    if (/^[A-Z0-9]*$/.test(nuevoValor) && nuevoValor.length <= 18) {
+      actualizarDato("curp", nuevoValor);
+    }
+  };
+
+  const manejarRfc = (valor) => {
+    const nuevoValor = valor.toUpperCase();
+
+    if (/^[A-ZÑ&0-9]*$/.test(nuevoValor) && nuevoValor.length <= 13) {
+      actualizarDato("rfc", nuevoValor);
+    }
+  };
+
   const enviarSolicitud = () => {
     if (
       !datos.nombre ||
       !datos.apellido ||
       !validarEmail(datos.email) ||
-      !datos.curp ||
-      !datos.rfc ||
+      !validarCurpFormato(datos.curp) ||
+      !validarRFCFormato(datos.rfc) ||
       datos.telefono.length !== 10 ||
       !datos.genero
     ) {
@@ -82,16 +106,28 @@ function Formulario({
           placeholder="CURP"
           maxLength="18"
           value={datos.curp}
-          onChange={(e) => actualizarDato("curp", e.target.value.toUpperCase())}
+          onChange={(e) => manejarCurp(e.target.value)}
         />
+
+        {datos.curp && !validarCurpFormato(datos.curp) && (
+          <p className="texto-error">
+            CURP inválida. Debe tener 18 caracteres y el formato correcto.
+          </p>
+        )}
 
         <input
           type="text"
           placeholder="RFC"
           maxLength="13"
           value={datos.rfc}
-          onChange={(e) => actualizarDato("rfc", e.target.value.toUpperCase())}
+          onChange={(e) => manejarRfc(e.target.value)}
         />
+
+        {datos.rfc && !validarRFCFormato(datos.rfc) && (
+          <p className="texto-error">
+            RFC inválido. Debe tener 12 o 13 caracteres con formato correcto.
+          </p>
+        )}
 
         <h4>Tipo de tarjeta</h4>
 
