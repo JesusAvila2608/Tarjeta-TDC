@@ -306,24 +306,108 @@
 
   .flip-card {
     width: 100%;
-    max-width: 430px;
+    max-width: 380px;
     height: auto;
-    aspect-ratio: 430 / 270;
+    aspect-ratio: 380 / 238;
   }
 
   .hero-cards .flip-card {
-    max-width: 350px;
+    max-width: 320px;
     width: 100%;
-    aspect-ratio: 350 / 220;
+    aspect-ratio: 320 / 200;
   }
 
   .flip-card-front,
   .flip-card-back {
-    padding: 18px;
+    padding: 16px;
   }
 
   .hero-cards .flip-card-front {
-    padding: 16px;
+    padding: 14px;
+  }
+
+  /* Ajustes para elementos internos en responsive */
+  .bank-name {
+    top: 14px;
+    left: 20px;
+    font-size: 11px;
+  }
+
+  .logo-card {
+    top: 22px;
+    right: 22px;
+    width: 56px;
+    max-height: 56px;
+  }
+
+  .chip {
+    top: 55px;
+    left: 26px;
+    width: 44px;
+    height: 32px;
+  }
+
+  .card-number {
+    top: 102px;
+    left: 26px;
+    font-size: 18px;
+  }
+
+  .card-label {
+    bottom: 58px;
+    left: 26px;
+    font-size: 9px;
+  }
+
+  .card-holder {
+    bottom: 36px;
+    left: 26px;
+    font-size: 13px;
+  }
+
+  .card-balance-label {
+    bottom: 50px;
+    right: 26px;
+    font-size: 9px;
+  }
+
+  .card-balance {
+    bottom: 28px;
+    right: 26px;
+    font-size: 15px;
+  }
+
+  .card-type {
+    bottom: 12px;
+    right: 26px;
+    font-size: 11px;
+  }
+
+  /* Reverso */
+  .black-strip {
+    top: 36px;
+    height: 44px;
+  }
+
+  .signature-strip {
+    top: 100px;
+    left: 26px;
+    width: 208px;
+    height: 30px;
+  }
+
+  .security-code {
+    top: 100px;
+    right: 26px;
+    width: 56px;
+    height: 30px;
+  }
+
+  .back-text {
+    bottom: 24px;
+    left: 26px;
+    right: 26px;
+    font-size: 10px;
   }
 }
 
@@ -333,32 +417,106 @@
   }
 
   .flip-card {
-    max-width: 360px;
-    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 300 / 188;
   }
 
+  .hero-cards .flip-card {
+    max-width: 260px;
+    aspect-ratio: 260 / 163;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    padding: 14px;
+  }
+
+  .hero-cards .flip-card-front {
+    padding: 12px;
+  }
+
+  /* Ajustes más pequeños para móviles */
   .bank-name {
+    top: 12px;
+    left: 18px;
+    font-size: 10px;
+  }
+
+  .logo-card {
+    top: 18px;
+    right: 18px;
+    width: 48px;
+    max-height: 48px;
+  }
+
+  .chip {
+    top: 45px;
+    left: 22px;
+    width: 38px;
+    height: 28px;
+  }
+
+  .card-number {
+    top: 85px;
+    left: 22px;
+    font-size: 16px;
+  }
+
+  .card-label {
+    bottom: 48px;
+    left: 22px;
+    font-size: 8px;
+  }
+
+  .card-holder {
+    bottom: 30px;
+    left: 22px;
     font-size: 12px;
   }
 
-  .flip-card .card-number,
-  .hero-cards .card-number {
-    font-size: 15px;
+  .card-balance-label {
+    bottom: 42px;
+    right: 22px;
+    font-size: 8px;
   }
 
-  .flip-card .card-holder,
-  .flip-card .card-balance,
-  .flip-card .card-type,
-  .hero-cards .card-holder,
-  .hero-cards .card-balance,
-  .hero-cards .card-type {
-    font-size: 12px;
+  .card-balance {
+    bottom: 24px;
+    right: 22px;
+    font-size: 14px;
   }
 
-  .hero-cards .card-type,
-  .flip-card .card-type {
-    bottom: 12px;
-    right: 20px;
+  .card-type {
+    bottom: 10px;
+    right: 22px;
+    font-size: 10px;
+  }
+
+  /* Reverso */
+  .black-strip {
+    top: 30px;
+    height: 38px;
+  }
+
+  .signature-strip {
+    top: 85px;
+    left: 22px;
+    width: 180px;
+    height: 26px;
+  }
+
+  .security-code {
+    top: 85px;
+    right: 22px;
+    width: 48px;
+    height: 26px;
+  }
+
+  .back-text {
+    bottom: 20px;
+    left: 22px;
+    right: 22px;
+    font-size: 9px;
   }
 }
 
