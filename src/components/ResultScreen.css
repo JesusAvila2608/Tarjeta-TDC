@@ -118,42 +118,45 @@
   box-shadow: 0 22px 44px rgba(67, 56, 202, 0.35);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .result-screen {
     padding: 28px 16px;
   }
 
   .result-box {
-    padding: 28px 24px;
+    padding: 28px 22px;
   }
 
   .result-box h2 {
     font-size: 30px;
   }
 
-  .result-box p,
-  .result-details p {
-    font-size: 15px;
-  }
-
   .result-card-preview {
     padding: 18px;
   }
-}
 
-@media (max-width: 500px) {
-  .result-box {
-    padding: 24px 18px;
-  }
-
-  .result-card-preview {
-    flex-direction: column;
-    padding: 16px;
+  .result-details {
+    padding: 22px;
   }
 
   .result-box .btn-enviar {
     width: 100%;
-    min-width: auto;
+    min-width: 0;
   }
 }
 
+@media (max-width: 600px) {
+  .result-box {
+    padding: 22px 18px;
+    border-radius: 28px;
+  }
+
+  .result-box h2 {
+    font-size: 26px;
+  }
+
+  .result-box p,
+  .result-details p {
+    font-size: 15px;
+  }
+}

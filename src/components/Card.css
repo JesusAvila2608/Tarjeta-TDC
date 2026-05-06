@@ -1,10 +1,9 @@
 .card-area {
   width: 100%;
-  max-width: 460px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 18px;
+  padding: 30px;
   background: radial-gradient(circle, #1e3a8a, #020617);
 }
 
@@ -225,8 +224,7 @@
 .hero-cards .card-area {
   width: 100%;
   align-items: center;
-  padding: 12px 0 0;
-  margin: 0 auto;
+  padding-top: 0;
   background: transparent;
 }
 
@@ -250,67 +248,9 @@
 
 .hero-cards .bank-name {
   top: 20px;
-}
-
-@media (max-width: 900px) {
-  .flip-card {
-    width: 100%;
-    max-width: 430px;
-    aspect-ratio: 430 / 270;
-  }
-
-  .hero-cards .flip-card {
-    width: min(90vw, 320px);
-    aspect-ratio: 430 / 270;
-  }
-
-  .flip-card-front,
-  .flip-card-back {
-    padding: 20px;
-  }
-
-  .card-number {
-    font-size: 20px;
-  }
-
-  .card-holder,
-  .card-balance,
-  .card-type {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 600px) {
-  .flip-card {
-    width: 94vw;
-    max-width: 360px;
-    aspect-ratio: 430 / 270;
-  }
-
-  .hero-cards .flip-card {
-    width: min(90vw, 320px);
-    aspect-ratio: 430 / 270;
-    margin: 0 auto;
-  }
-
-  .card-number {
-    font-size: 18px;
-  }
-
-  .card-holder,
-  .card-balance,
-  .card-type {
-    font-size: 13px;
-  }
-
-  .logo-card {
-    width: 60px;
-  }
-
-  .chip {
-    width: 50px;
-    height: 36px;
-  }
+  right: 24px;
+  font-size: 13px;
+  color: black; 
 }
 
 .hero-cards .logo-card {
@@ -357,6 +297,69 @@
   bottom: 25px;
   right: 26px;
   font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .card-area {
+    padding: 16px;
+  }
+
+  .flip-card {
+    width: 100%;
+    max-width: 430px;
+    height: auto;
+    aspect-ratio: 430 / 270;
+  }
+
+  .hero-cards .flip-card {
+    max-width: 350px;
+    width: 100%;
+    aspect-ratio: 350 / 220;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    padding: 18px;
+  }
+
+  .hero-cards .flip-card-front {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card-area {
+    padding: 12px;
+  }
+
+  .flip-card {
+    max-width: 360px;
+    width: 100%;
+  }
+
+  .bank-name {
+    font-size: 12px;
+  }
+
+  .flip-card .card-number,
+  .hero-cards .card-number {
+    font-size: 15px;
+  }
+
+  .flip-card .card-holder,
+  .flip-card .card-balance,
+  .flip-card .card-type,
+  .hero-cards .card-holder,
+  .hero-cards .card-balance,
+  .hero-cards .card-type {
+    font-size: 12px;
+  }
+
+  .hero-cards .card-type,
+  .flip-card .card-type {
+    bottom: 12px;
+    right: 20px;
+  }
 }
 
 .hero-cards .card-type {

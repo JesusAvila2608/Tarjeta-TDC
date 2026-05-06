@@ -186,47 +186,20 @@
 .btn-enviar:hover {
   background: #15803d !important;
 }
-@media (max-width: 700px) {
+
+@media (max-width: 900px) {
   .formulario {
     width: 100%;
-    padding: 20px 18px;
-    min-height: auto;
+    padding: 22px 18px;
   }
 
   .formulario-contenido {
     padding: 28px 22px;
+    max-width: 100%;
   }
 
   .formulario h2 {
     font-size: 24px;
-  }
-
-  .tipo-tarjeta {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .genero label {
-    display: block;
-    width: 100%;
-  }
-
-  .checkbox {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .btn-enviar {
-    padding: 14px 18px;
-  }
-}
-
-@media (max-width: 500px) {
-  .formulario {
-    padding: 16px 14px;
-  }
-
-  .formulario-contenido {
-    padding: 24px 18px;
   }
 
   .tipo-tarjeta {
@@ -238,18 +211,27 @@
     width: 100%;
   }
 
-  .genero {
-    padding: 12px;
+  .genero label {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .formulario {
+    padding: 18px 14px;
   }
 
-  .genero label {
-    font-size: 14px;
+  .formulario-contenido {
+    padding: 24px 18px;
+  }
+
+  .formulario h2 {
+    font-size: 22px;
   }
 
   .formulario input[type="text"],
   .formulario input[type="email"],
   .formulario input[type="tel"] {
     padding: 11px 12px;
-    font-size: 14px;
   }
 }
