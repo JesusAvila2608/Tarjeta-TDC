@@ -65,6 +65,14 @@ button {
   .hero-banco,
   .container {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .hero-banco {
+    padding: 40px 6%;
+    min-height: auto;
   }
 
   .hero-info,
@@ -72,5 +80,50 @@ button {
   .card-area,
   .formulario {
     width: 100%;
+  }
+
+  .hero-info {
+    width: 100%;
+    max-width: 720px;
+  }
+
+  .hero-info h1 {
+    font-size: 42px;
+    line-height: 1.1;
+  }
+
+  .hero-info p {
+    font-size: 18px;
+    max-width: 100%;
+  }
+
+  .hero-preview.hero-cards {
+    width: 100%;
+    max-width: 420px;
+    padding-top: 20px;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-banco {
+    padding: 32px 5%;
+  }
+
+  .hero-info h1 {
+    font-size: 34px;
+  }
+
+  .hero-info p {
+    font-size: 16px;
+  }
+
+  .hero-info button {
+    width: 100%;
+    padding: 14px 18px;
+  }
+
+  .container {
+    padding: 20px 5%;
   }
 }
