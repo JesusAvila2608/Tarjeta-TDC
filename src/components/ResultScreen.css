@@ -146,17 +146,46 @@
 }
 
 @media (max-width: 600px) {
+  .result-screen {
+    padding: 20px 12px;
+  }
+
   .result-box {
-    padding: 22px 18px;
-    border-radius: 28px;
+    padding: 20px 16px;
+    border-radius: 24px;
   }
 
   .result-box h2 {
-    font-size: 26px;
+    font-size: 24px;
+    margin-bottom: 10px;
   }
 
-  .result-box p,
+  .result-box > p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .result-card-preview {
+    padding: 16px 8px;
+    margin: 0 auto 20px;
+    border-radius: 20px;
+  }
+
+  .result-details {
+    padding: 18px;
+    border-radius: 16px;
+    margin-bottom: 18px;
+  }
+
   .result-details p {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+
+  .result-box .btn-enviar {
+    width: 100%;
+    min-width: 0;
+    padding: 14px 20px;
     font-size: 15px;
   }
 }

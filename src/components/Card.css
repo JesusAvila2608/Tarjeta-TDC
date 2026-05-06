@@ -8,10 +8,12 @@
 }
 
 .flip-card {
-  width: 430px;
+  width: 100%;
+  max-width: 430px;
   height: 270px;
   perspective: 1000px;
   color: white;
+  aspect-ratio: 430 / 270;
 }
 
 .flip-card-inner {
@@ -417,18 +419,18 @@
   }
 
   .flip-card {
-    max-width: 300px;
-    aspect-ratio: 300 / 188;
+    max-width: 320px;
+    aspect-ratio: 320 / 220;
   }
 
   .hero-cards .flip-card {
     max-width: 260px;
-    aspect-ratio: 260 / 163;
+    aspect-ratio: 260 / 180;
   }
 
   .flip-card-front,
   .flip-card-back {
-    padding: 14px;
+    padding: 16px;
   }
 
   .hero-cards .flip-card-front {
@@ -450,40 +452,40 @@
   }
 
   .chip {
-    top: 45px;
+    top: 50px;
     left: 22px;
     width: 38px;
     height: 28px;
   }
 
   .card-number {
-    top: 85px;
+    top: 95px;
     left: 22px;
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .card-label {
-    bottom: 48px;
+    bottom: 50px;
     left: 22px;
     font-size: 8px;
   }
 
   .card-holder {
-    bottom: 30px;
+    bottom: 32px;
     left: 22px;
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .card-balance-label {
-    bottom: 42px;
+    bottom: 50px;
     right: 22px;
     font-size: 8px;
   }
 
   .card-balance {
-    bottom: 24px;
+    bottom: 32px;
     right: 22px;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .card-type {
